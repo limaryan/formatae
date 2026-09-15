@@ -1,12 +1,130 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Formataê — Conversor de imagens grátis</title><meta name="description" content="Converta WEBP, PNG e JPG grátis, rápido e direto no navegador. Sem cadastro e sem enviar suas imagens para nossos servidores."><link rel="canonical" href="https://formatae.com.br/"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head><body>
-<header class="top"><div class="wrap nav"><a class="brand" href="index.html">Formata<span>ê</span></a><nav><a href="#ferramentas">Ferramentas</a><a href="sobre.html">Sobre</a><a href="privacidade.html">Privacidade</a><a href="contato.html">Contato</a></nav></div></header>
-<main><section class="hero wrap"><div class="eyebrow">FÁCIL. RÁPIDO. GRATUITO.</div><h1>Seu arquivo, do jeito que precisa.</h1><p>Comece convertendo suas imagens entre WEBP, PNG e JPG. Tudo acontece no seu dispositivo, sem cadastro e sem complicação.</p></section>
-<section class="wrap"><div class="tool"><div id="drop" class="drop"><div style="font-size:34px">↥</div><h2>Arraste suas imagens aqui</h2><p>ou selecione arquivos WEBP, PNG, JPG e BMP</p><button id="pick" class="primary">Selecionar imagens</button><input id="files" type="file" accept="image/webp,image/png,image/jpeg,image/bmp" multiple hidden></div>
-<div class="options"><div><div class="label">FORMATO DE SAÍDA</div><div class="formats"><button class="fmt active" data-format="image/png" data-ext="png">PNG</button><button class="fmt" data-format="image/jpeg" data-ext="jpg">JPG</button><button class="fmt" data-format="image/webp" data-ext="webp">WEBP</button></div><div id="qualityRow" class="range hidden" style="margin-top:18px"><input id="quality" type="range" min="20" max="100" value="90"><b id="qval">90%</b></div></div><div><label class="check"><input id="resize" type="checkbox"> Redimensionar imagens</label><div id="resizeBox" class="resizebox hidden"><input id="width" type="number" min="1" placeholder="Largura (px)"><input id="height" type="number" min="1" placeholder="Altura (px)"><label class="check"><input id="ratio" type="checkbox" checked> Manter proporção</label></div></div></div>
-<div id="queue" class="queue hidden"><div id="items"></div></div><div class="actions"><button id="clear" class="secondary">Limpar</button><div><button id="downloadAll" class="secondary hidden">Baixar todas</button> <button id="convert" class="primary" disabled>Converter imagens</button></div></div></div>
-<div class="privacy-note">🔒 <b>Seus arquivos ficam com você.</b> As imagens são processadas localmente no seu navegador e não são enviadas ao Formataê.</div></section>
-<div class="ad">ESPAÇO RESERVADO PARA PUBLICIDADE FUTURA</div>
-<section id="ferramentas" class="section wrap"><h2>Ferramentas simples, sem enrolação.</h2><div class="cards"><div class="card"><span class="tag">DISPONÍVEL</span><h3>Converter imagens</h3><p>Transforme WEBP, PNG e JPG diretamente no navegador.</p></div><div class="card"><span class="tag">EM BREVE</span><h3>Comprimir imagens</h3><p>Reduza o tamanho dos arquivos mantendo uma boa qualidade visual.</p></div><div class="card"><span class="tag">EM BREVE</span><h3>Imagem para PDF</h3><p>Organize suas imagens e transforme-as em um único documento PDF.</p></div></div></section>
-<section class="section wrap"><div class="content"><h2>Conversão de imagens sem complicação</h2><p>O Formataê nasceu para tornar tarefas comuns com arquivos mais rápidas. Para converter uma imagem, selecione seus arquivos, escolha PNG, JPG ou WEBP e clique em converter. O processamento ocorre no próprio dispositivo.</p><h2>WEBP, PNG ou JPG?</h2><p>PNG é útil quando transparência e fidelidade são importantes. JPG costuma ser adequado para fotografias e arquivos menores. WEBP oferece boa compressão para uso na web. Escolha de acordo com onde a imagem será utilizada.</p></div></section>
-<div class="ad">ESPAÇO RESERVADO PARA PUBLICIDADE FUTURA</div></main>
-<footer class="footer"><div class="wrap foot"><div><b>Formataê</b> · Fácil. Rápido. Gratuito.<br>© 2026 Formataê</div><div class="footlinks"><a href="sobre.html">Sobre</a><a href="privacidade.html">Privacidade</a><a href="termos.html">Termos</a><a href="cookies.html">Cookies</a><a href="contato.html">Contato</a></div></div></footer><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Formataê — Conversor de imagens grátis</title>
+  <meta name="description" content="Converta WEBP, PNG, JPG e BMP gratuitamente, direto no navegador. Rápido, privado e sem cadastro.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="Formataê - início">Formata<span>ê</span></a>
+  <nav>
+    <a href="#conversor">Converter</a>
+    <a href="#vantagens">Como funciona</a>
+    <a href="sobre.html">Sobre</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">FÁCIL · RÁPIDO · GRATUITO</div>
+    <h1>Converta suas imagens<br><span>sem complicação.</span></h1>
+    <p>WEBP, PNG e JPG em poucos segundos. Sem cadastro, sem instalar nada e sem enviar seus arquivos para nossos servidores.</p>
+  </section>
+
+  <section id="conversor" class="converter-card">
+    <label id="dropZone" class="drop-zone" for="fileInput">
+      <div class="upload-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
+      </div>
+      <h2>Arraste suas imagens aqui</h2>
+      <p>ou clique para escolher arquivos</p>
+      <span class="choose-button">Escolher imagens</span>
+      <small>WEBP, PNG, JPG e BMP</small>
+      <input id="fileInput" type="file" accept="image/webp,image/png,image/jpeg,image/bmp" multiple hidden>
+    </label>
+
+    <div id="fileSummary" class="file-summary hidden"></div>
+
+    <div class="controls">
+      <div class="control-block">
+        <span class="control-label">Converter para</span>
+        <div class="format-tabs" role="group" aria-label="Formato de saída">
+          <button class="format active" data-format="png" type="button">PNG</button>
+          <button class="format" data-format="jpeg" type="button">JPG</button>
+          <button class="format" data-format="webp" type="button">WEBP</button>
+        </div>
+      </div>
+
+      <details class="advanced">
+        <summary>
+          <span>Configurações avançadas</span>
+          <span class="chevron">⌄</span>
+        </summary>
+        <div class="advanced-grid">
+          <label id="qualityWrap">
+            <span>Qualidade <b id="qualityValue">90%</b></span>
+            <input id="quality" type="range" min="10" max="100" value="90">
+          </label>
+          <label class="check-row">
+            <input id="resizeToggle" type="checkbox">
+            <span>Redimensionar imagens</span>
+          </label>
+          <div id="resizeFields" class="resize-fields hidden">
+            <label>Largura <input id="widthInput" type="number" min="1" placeholder="px"></label>
+            <label>Altura <input id="heightInput" type="number" min="1" placeholder="px"></label>
+            <label class="check-row"><input id="keepRatio" type="checkbox" checked><span>Manter proporção</span></label>
+          </div>
+        </div>
+      </details>
+
+      <button id="convertBtn" class="convert-button" type="button" disabled>Converter imagens</button>
+    </div>
+  </section>
+
+  <div class="privacy-note">
+    <span>🔒</span>
+    <div><strong>Seus arquivos ficam com você.</strong><br>Todo o processamento acontece diretamente no seu navegador.</div>
+  </div>
+
+  <section id="results" class="results hidden">
+    <div class="results-head">
+      <div><span class="success-dot">✓</span><h2>Conversão concluída</h2></div>
+      <button id="clearBtn" class="text-button" type="button">Nova conversão</button>
+    </div>
+    <div id="resultList" class="result-list"></div>
+    <button id="downloadAllBtn" class="secondary-button hidden" type="button">Baixar todas</button>
+  </section>
+
+  <section id="vantagens" class="benefits">
+    <div>
+      <span class="benefit-icon">⚡</span>
+      <h3>Rápido</h3>
+      <p>A conversão acontece no seu dispositivo, sem esperar uploads.</p>
+    </div>
+    <div>
+      <span class="benefit-icon">🔒</span>
+      <h3>Privado</h3>
+      <p>Suas imagens não são enviadas para os servidores do Formataê.</p>
+    </div>
+    <div>
+      <span class="benefit-icon">✓</span>
+      <h3>Gratuito</h3>
+      <p>Sem cadastro, assinatura ou limite artificial de conversões.</p>
+    </div>
+  </section>
+
+  <section class="seo-copy">
+    <h2>Converter imagens deveria ser simples.</h2>
+    <p>Escolha suas imagens, selecione o formato e pronto. PNG é ideal quando transparência e fidelidade importam; JPG funciona muito bem para fotografias; e WEBP oferece ótima compressão para a web.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand"><strong>Formataê</strong><span>Fácil. Rápido. Gratuito.</span></div>
+  <div class="footer-links">
+    <a href="sobre.html">Sobre</a>
+    <a href="privacidade.html">Privacidade</a>
+    <a href="termos.html">Termos</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <small>© 2026 Formataê</small>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

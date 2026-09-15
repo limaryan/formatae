@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://formatae.com.br/sitemap.xml
